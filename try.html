@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <style type="text/css">
+    #slider { margin: 10px; }
+  </style>
+  <script>
+      $(document).ready(function () {
+          $("#slider").slider(
+          {
+              min: 0,
+              max: 100,
+              step: 1,
+              change: showValue
+
+          });
+          $("#update").click(function () {
+              $("#slider").slider("option", "value", $("#seekTo").val());
+
+          });
+          function showValue(event, ui) {
+              $("#val").html(ui.value);
+          }
+      });
+  </script>
+</head>
+<body style="font-size:62.5%;">
+  <p>
+  The jQuery UI Slider plugin makes selected elements into sliders. There are various options such as multiple handles, and ranges. The handle can be moved with the mouse or the arrow keys.
+  </p>
+  <p>
+  This sample demonstrates the simple usage of the slider seek to function.
+  For more information about slider, please procedd to http://docs.jquery.com/UI/Slider
+  </p>
+<div id="slider"></div>
+Seek To : <input id="seekTo" type="text" value="10" />
+<input id="update" type="button" value="Update" />
+Current Value : <span id="val">0</span>
+</body>
+</html>
